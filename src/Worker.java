@@ -9,12 +9,13 @@ public class Worker {
 
     public void start() {
         for (int i = 0; i < 100; i++) {
-            if (errorCallback.onError(i)) {
-                continue;
-            }
+            if (i == 33) {
+                errorCallback.onError("Task " + i + " isn't done, error");
+            } else {
                 callback.onDone("Task " + i + " is done");
             }
         }
     }
+}
 
 
